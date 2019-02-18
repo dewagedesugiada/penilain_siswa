@@ -36,7 +36,7 @@ exports.insert = function insert(data, callback) {
 
 exports.update = function update(id, data, callback) {
     studyMaterial.update(data, {
-        where: { weekId: data.weekId },
+        where: { materialId: data.materialId },
         returning: true,
         plain: true
     })
@@ -52,7 +52,7 @@ exports.update = function update(id, data, callback) {
 
 exports.del = function del(id, callback) {
     studyMaterial.destroy({
-        where: { weekId: id }
+        where: { materialId: id }
     })
         .then((result) => {
             return callback(null, id);

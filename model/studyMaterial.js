@@ -13,7 +13,7 @@ module.exports = (sequelize, type) => {
             defaultValue: "1"
         }
     }, {
-            tabelName: "study_material",
+            tableName: "study_material",
             timestamps: false
         })
 }

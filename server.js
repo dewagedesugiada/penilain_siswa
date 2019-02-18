@@ -19,6 +19,9 @@ bootcampBatchRoute(app);
 var studyPeriodRoute = require('./routes/studyPeriodRoute');
 studyPeriodRoute(app);
 
+var studyMaterialROute = require('./routes/studyMaterialRoute');
+studyMaterialROute(app);
+
 app.listen(port);
 logger.info('RESful API server started on port ' + port);
 
