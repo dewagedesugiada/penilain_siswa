@@ -22,3 +22,14 @@ exports.getById = function getById(id, callback) {
             return callback(error);
         })
 }
+
+exports.insert = function insert(data, callback) {
+    studyPeriod.create(data)
+        .then((result) => {
+            return callback(null, result);
+        })
+        .catch((error) => {
+            logger.error(error);
+            return callback(error);
+        })
+}
