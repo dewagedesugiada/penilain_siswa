@@ -3,6 +3,17 @@ const logger = require('../logger/winston');
 
 exports.getAll = function getAll(callback) {
     studyPeriod.findAll()
+        .then((results) => {
+            return callback(null, results);
+        })
+        .catch((error) => {
+            logger.error(error);
+            return callback(error);
+        })
+}
+
+exports.getById = function getById(id, callback) {
+    studyPeriod.findById(id)
         .then((result) => {
             return callback(null, result);
         })
