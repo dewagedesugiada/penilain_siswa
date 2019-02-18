@@ -16,6 +16,9 @@ logger.debug("Overriding 'express' logger");
 var bootcampBatchRoute = require('./routes/bootcampBatchRoute');
 bootcampBatchRoute(app);
 
+var studyPeriodRoute = require('./routes/studyPeriodRoute');
+studyPeriodRoute(app);
+
 app.listen(port);
 logger.info('RESful API server started on port ' + port);
 
