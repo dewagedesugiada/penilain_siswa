@@ -30,7 +30,8 @@ exports.insertData = function (req, res) {
             logger.error('error while insert' + err);
             response.err(err, res);
         } else {
-            response.ok(result.affectedRows + "data inserted..", res);
+            console.log(result.affectedRows);
+            response.ok(result, res);
         }
     });
 }
@@ -62,7 +63,7 @@ exports.deleteData = function (req, res) {
             logger.error('error while delete' + err);
             response.err(err, res);
         } else {
-            response.ok(result, res);
+            response.ok("data with id " + result + " has been deleted successfully ", res);
         }
     })
 }

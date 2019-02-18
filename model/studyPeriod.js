@@ -3,16 +3,16 @@ module.exports = (sequelize, type) => {
         weekId: {
             field: 'week_id',
             type: type.INTEGER,
-            primaryKey: true,
+            primaryKey: true
         },
         description: type.TEXT,
         activeFlag: {
             field: 'active_flag',
-            type: type.ENUM('0', '1'),
+            type: type.ENUM('1', '0'),
             defaultValue: '1'
         }
     }, {
             tableName: 'study_period',
-            timestamp: false
+            timestamps: false
         })
 }
