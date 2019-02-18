@@ -2,7 +2,7 @@ const { trainer } = require('../db/connection');
 const logger = require('../logger/winston');
 
 exports.getAll = function getAll(callback) {
-    studyPeriod.findAll()
+    trainer.findAll()
         .then((results) => {
             return callback(null, results);
         })
@@ -13,7 +13,7 @@ exports.getAll = function getAll(callback) {
 }
 
 exports.getById = function getById(id, callback) {
-    studyPeriod.findById(id)
+    trainer.findById(id)
         .then((result) => {
             return callback(null, result);
         })
@@ -24,7 +24,7 @@ exports.getById = function getById(id, callback) {
 }
 
 exports.insert = function insert(data, callback) {
-    studyPeriod.create(data)
+    trainer.create(data)
         .then((result) => {
             return callback(null, result);
         })
@@ -35,7 +35,7 @@ exports.insert = function insert(data, callback) {
 }
 
 exports.update = function update(id, data, callback) {
-    studyPeriod.update(data, {
+    trainer.update(data, {
         where: { trainerId: data.trainerId },
         returning: true,
         plain: true
@@ -51,7 +51,7 @@ exports.update = function update(id, data, callback) {
 }
 
 exports.del = function del(id, callback) {
-    studyPeriod.destroy({
+    trainer.destroy({
         where: { trainerId: id }
     })
         .then((result) => {
