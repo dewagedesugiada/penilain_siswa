@@ -52,7 +52,18 @@ exports.updateData = function (req, res) {
 
                     response.ok(result, res);
                 }
-            })
+            });
+        }
+    });
+}
+
+exports.deleteData = function (req, res) {
+    bootcampBatchDao.del(req.params['id'], function (err, result) {
+        if (err) {
+            logger.error('delete failed ' + err);
+            response.err(err, res);
+        } else {
+            response.ok("delete success...", res);
         }
     })
 }
