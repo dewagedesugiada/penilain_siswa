@@ -1,5 +1,5 @@
-const bootcampBatch = require('../db/connection');
-const logger = require('../looger/winston');
+const { bootcampBatch } = require('../db/connection');
+const logger = require('../logger/winston');
 
 exports.getById = function getById(id, callback) {
     bootcampBatch.findById(id)
