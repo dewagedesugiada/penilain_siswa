@@ -33,3 +33,19 @@ exports.insert = function insert(data, callback) {
             return callback(error);
         })
 }
+
+exports.update = function update(id, data, callback) {
+    studyPeriod.update(data, {
+        where: { weekId: data.weekId },
+        returning: true,
+        plain: true
+    })
+        .then((result) => {
+            logger.info(result);
+            return callback(null, data);
+        })
+        .catch((error) => {
+            logger.error(error);
+            return callback(error);
+        })
+}
