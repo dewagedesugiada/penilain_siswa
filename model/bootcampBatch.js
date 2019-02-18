@@ -17,7 +17,8 @@ module.exports = (sequelize, type) => {
             type: type.DATE
         }
     }, {
-            tableName: 'bootcamp_bacth',
+            tableName: 'bootcamp_batch',
             timestamps: false
         })
+
 }
