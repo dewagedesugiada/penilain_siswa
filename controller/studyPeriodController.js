@@ -12,3 +12,14 @@ exports.List = function (req, res) {
         }
     })
 }
+
+exports.getDataById = function (req, res) {
+    studyPeriodDao.getById(req.params['id'], function (err, result) {
+        if (err) {
+            logger.error('error while select by id' + err);
+            response.err(err, res);
+        } else {
+            response.ok(result.res);
+        }
+    })
+}
