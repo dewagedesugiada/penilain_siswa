@@ -23,3 +23,14 @@ exports.getDataById = function (req, res) {
         }
     })
 }
+
+exports.insertData = function (req, res) {
+    studyPeriodDao.insert(req.body, function (err, result) {
+        if (err) {
+            logger.error('error while insert' + err);
+            response.err(err, res);
+        } else {
+            response.ok(result.res);
+        }
+    })
+}
