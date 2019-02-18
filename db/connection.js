@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 // request model
 const bootcampBatchModel = require('../model/bootcampBatch');
 const studyPeriodModel = require('../model/studyPeriod');
+const studyMaterialModel = require("../model/studyMaterial");
 
 //create connection sequelize
 const sequelize = new Sequelize('bootcamp', 'root', '', {
@@ -21,8 +22,9 @@ const sequelize = new Sequelize('bootcamp', 'root', '', {
 // added relationship on sequelize
 const bootcampBatch = bootcampBatchModel(sequelize, Sequelize);
 const studyPeriod = studyPeriodModel(sequelize, Sequelize);
-
+const studyMaterial = studyMaterialModel(sequelize, Sequelize);
 module.exports = {
     bootcampBatch,
-    studyPeriod
+    studyPeriod,
+    studyMaterial
 }
