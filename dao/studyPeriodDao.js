@@ -49,3 +49,16 @@ exports.update = function update(id, data, callback) {
             return callback(error);
         })
 }
+
+exports.del = function del(id, callback) {
+    studyPeriod.destroy({
+        where: { weekId: id }
+    })
+        .then((result) => {
+            return callback(null, id);
+        })
+        .catch((error) => {
+            logger.error(error);
+            return callback(error);
+        })
+}
