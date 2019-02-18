@@ -1,4 +1,4 @@
-var winston = require('../logger/winston');
+var winston = require('winston');
 
 var options = {
     file: {
