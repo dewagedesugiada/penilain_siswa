@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 
 // request model
-const BootcampBatchModel = require('../model/bootcampBatch');
+const bootcampBatchModel = require('../model/bootcampBatch');
+const studyPeriodModel = require('../model/studyPeriod');
 
 //create connection sequelize
 const sequelize = new Sequelize('bootcamp', 'root', '', {
@@ -18,8 +19,10 @@ const sequelize = new Sequelize('bootcamp', 'root', '', {
 })
 
 // added relationship on sequelize
-const bootcampBatch = BootcampBatchModel(sequelize, Sequelize);
+const bootcampBatch = bootcampBatchModel(sequelize, Sequelize);
+const studyPeriod = studyPeriodModel(sequelize, Sequelize);
 
 module.exports = {
-    bootcampBatch
+    bootcampBatch,
+    studyPeriod
 }
