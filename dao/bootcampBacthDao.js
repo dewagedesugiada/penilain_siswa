@@ -11,3 +11,14 @@ exports.getById = function getById(id, callback) {
             return callback(error);
         });
 }
+
+exports.getAll = function getAll(callback) {
+    bootcampBatch.findAll()
+        .then((results) => {
+            return callback(null, results);
+        })
+        .catch((error) => {
+            logger.error(error);
+            return callback(error);
+        })
+}
