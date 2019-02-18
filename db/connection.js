@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 const bootcampBatchModel = require('../model/bootcampBatch');
 const studyPeriodModel = require('../model/studyPeriod');
 const studyMaterialModel = require("../model/studyMaterial");
+const trainerModel = require("../model/trainer");
 
 //create connection sequelize
 const sequelize = new Sequelize('bootcamp', 'root', '', {
@@ -23,8 +24,10 @@ const sequelize = new Sequelize('bootcamp', 'root', '', {
 const bootcampBatch = bootcampBatchModel(sequelize, Sequelize);
 const studyPeriod = studyPeriodModel(sequelize, Sequelize);
 const studyMaterial = studyMaterialModel(sequelize, Sequelize);
+const trainer = trainerModel(sequelize, Sequelize);
 module.exports = {
     bootcampBatch,
     studyPeriod,
-    studyMaterial
+    studyMaterial,
+    trainer
 }
