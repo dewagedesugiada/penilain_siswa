@@ -13,13 +13,24 @@ exports.List = function (req, res) {
     });
 }
 
-exports.getBootcampBatchById = function (req, res) {
+exports.getDataById = function (req, res) {
     bootcampBatchDao.getById(req.params['id'], function (err, result) {
         if (err) {
             logger.error("error while select by id " + err);
             response.error(err, res);
         } else {
             response.ok(result, res);
+        }
+    })
+}
+
+exports.insertData = function (req, res) {
+    bootcampBatchDao.insert(req.body, function (err, result) {
+        if (err) {
+            logger.error("error while insert data " + err);
+            response.error(err, res);
+        } else {
+            response.ok(result.affectedRows + " data inserted ", res);
         }
     })
 }
