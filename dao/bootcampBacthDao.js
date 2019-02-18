@@ -50,3 +50,18 @@ exports.update = function update(id, data, callback) {
             return callback(error);
         })
 }
+
+exports.del = function del(id, callback) {
+    bootcampBatch.destroy({
+        where: { batchId: id }
+    })
+        .then((result) => {
+            logger.info('delete success  :');
+            logger.info(result);
+            return callback(null, id);
+        })
+        .catch((error) => {
+            logger.error(error);
+            return callback(error);
+        })
+}
