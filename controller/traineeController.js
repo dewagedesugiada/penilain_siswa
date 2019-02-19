@@ -3,7 +3,11 @@ const response = require('../response/res');
 const logger = require('../logger/winston');
 
 exports.List = function (req, res) {
-    traineeDao.getAll(function (err, result) {
+    let whereClause = {};
+    if (req.query.batchId) {
+        whereClause.batchId = req.query.batchId;
+    }
+    traineeDao.getAll(whereClause, function (err, result) {
         if (err) {
             logger.error('error while select' + err);
             response.err(err, res);

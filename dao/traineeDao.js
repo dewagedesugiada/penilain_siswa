@@ -1,8 +1,11 @@
-const { trainee } = require("../db/connection");
+const { trainee, bootcampBatch } = require("../db/connection");
 const logger = require("../logger/winston");
 
-exports.getAll = function getAll(callback) {
-    trainee.findAll()
+exports.getAll = function getAll(whereClause, callback) {
+    trainee.findAll({
+        where: whereClause,
+        include: bootcampBatch
+    })
         .then((results) => {
             return callback(null, results);
         })
@@ -24,9 +27,17 @@ exports.getById = function getById(id, callback) {
 }
 
 exports.insert = function insert(data, callback) {
-    trainee.create(data)
-        .then((result) => {
-            return callback(null, result);
+    let traine = data;
+    if (traine.bootcamp_batch == null && traine.batchId == null) {
+        res.json('customer null');
+    } else {
+        if (traine.batchId == null) {
+            traine.batchId = traine.bootcamp_batch.batchId;
+        }
+    }
+    trainee.create(traine)
+        .then((traine) => {
+            return callback(null, traine);
         })
         .catch((error) => {
             logger.error(error);

@@ -25,6 +25,9 @@ studyMaterialROute(app);
 var trainer = require("./routes/trainerRoute");
 trainer(app);
 
+var trainee = require("./routes/traineeRoute");
+trainee(app);
+
 app.listen(port);
 logger.info('RESful API server started on port ' + port);
 
